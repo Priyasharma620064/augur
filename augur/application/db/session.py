@@ -35,6 +35,7 @@ def remove_null_characters_from_strings_in_dict(data, fields):
             continue
 
     return data
+"""
 
 def remove_null_characters_from_list_of_dicts(data_list, fields):
 
@@ -42,7 +43,7 @@ def remove_null_characters_from_list_of_dicts(data_list, fields):
         value = remove_null_characters_from_strings_in_dict(value, fields)
 
     return data_list
-"""
+
 
 def remove_null_characters_from_strings_in_dict(data, fields):
 
