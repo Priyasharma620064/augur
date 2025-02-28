@@ -18,6 +18,7 @@ def remove_null_characters_from_string(string):
 
     return string
 
+"""
 def remove_null_characters_from_strings_in_dict(data, fields):
 
     for field in fields:
@@ -41,6 +42,24 @@ def remove_null_characters_from_list_of_dicts(data_list, fields):
         value = remove_null_characters_from_strings_in_dict(value, fields)
 
     return data_list
+"""
+
+def remove_null_characters_from_strings_in_dict(data, fields):
+
+    for field in fields:
+        if field not in data:
+            print(f"Debug: error {field} is not in data. Available keys: {list(data.keys())}")
+        
+        # ensure the field exists in the dict
+        try:
+            data[field] = remove_null_characters_from_string(data[field])
+        except KeyError:
+            print(f"Error: Field {field} is missing from dict. Available keys: {list(data.keys())}")
+            continue
+        except AttributeError:
+            continue
+
+    return data
 
 class DatabaseSession(Session):
 
